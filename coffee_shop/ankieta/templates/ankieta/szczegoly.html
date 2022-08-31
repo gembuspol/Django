@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block tittle %}Ankieta - szczegóły {% endblock %}
+{% block content %}
+<form action="{% url 'ankieta:glosuj' pytanie.id %}" method="post" name="glosuj" >
+{% csrf_token %}    
+<a href="/ankieta/pytania/"><button type="button" class="btn btn-warning">{{pytanie.tekst_pytania}}</button></a>
+
+
+
+    <ul>
+        {% for odp in pytanie.odpowiedz_set.all %}
+      
+            <input type="radio" name="Wybor" id="wybor{{ forloop.counter }}" value="{{odp.id}}" >
+            <label for="wybor{{ forloop.counter }}">{{odp.tekst_wyboru}}</label> <br>
+           
+    
+        {% endfor %}
+    </ul>
+    <input type="submit" value="Glosuj">
+</form>
+
+{% endblock %}

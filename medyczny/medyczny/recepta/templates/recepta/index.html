@@ -1,0 +1,14 @@
+{% extends 'base.html'%}
+{% block title %} strona główna aplikacji {% endblock %}
+
+{% block content %}
+    <h1>{{tytul}}</h1>
+    <p>Osoby</p>
+    {% for osoba in lista_osob %}
+    <button type="button" class="btn btn-warning">{{osoba}}</button>
+    {% endfor %}
+    <p>Adresy</p>
+    {% for adr in adres %}
+    <button type="button" class="btn btn-danger">{{adr}}</button>
+    {% endfor %}
+{% endblock %}
